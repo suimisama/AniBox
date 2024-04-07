@@ -26,8 +26,6 @@ function AnimeImageBox() {
     }
   }
   function handleClickBox(e) {
-    console.log(e);
-    console.log(e.target.id);
     if (e.target.id === 'box') {
       handleCurrentBoxChange(null);
     }

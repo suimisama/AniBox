@@ -9,12 +9,17 @@ function ImageBox({ id, src = '', onClick, size = 'normal' }) {
     large: 'w-[300px] h-[300px]',
     auto: '',
   };
-  const computedBorder = 3 - border * 0.03 || 3;
+  const computedBorder = 1 - border * 0.01 || 1;
+  const shadowStyles = {
+    boxShadow: `rgb(255, 255, 255) 0px 0px 0px ${computedBorder}px`,
+  };
+
   const active = currentBox === id;
 
   return (
     <a
-      className={`flex justify-center items-center border-[3px] overflow-hidden text-sky-700 border-dashed hover:text-slate-950 cursor-pointer ${active ? ' border-sky-700' : 'border-transparent'}`}
+      className={`flex justify-center items-center overflow-hidden image-shadow text-sky-700 border-dashed hover:text-slate-950 cursor-pointer ${active ? ' border-sky-700' : 'border-transparent'}`}
+      style={shadowStyles}
       onClick={onClick}
     >
       {src ? (
