@@ -14,6 +14,7 @@ const initialState = {
   size: 3,
   box: [],
   border: 0,
+  borderColor: 'rgb(255, 255, 255)',
 };
 
 function reducer(state, action) {
@@ -30,14 +31,18 @@ function reducer(state, action) {
       return { ...state, box: action.payload };
     case 'updateBorder':
       return { ...state, border: action.payload };
+    case 'updateBorderColor':
+      return { ...state, borderColor: action.payload };
     default:
       return state;
   }
 }
 
 function AnimeProvider({ children }) {
-  const [{ currentBox, keyword, search, size, box, border }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { currentBox, keyword, search, size, box, border, borderColor },
+    dispatch,
+  ] = useReducer(reducer, initialState);
   const imageRef = useRef(null);
   useEffect(() => {
     const arr = Array.from({ length: size * size }).map((_, index) => {
@@ -64,6 +69,9 @@ function AnimeProvider({ children }) {
   function handleBorderUpdate(newBorder) {
     dispatch({ type: 'updateBorder', payload: newBorder });
   }
+  function handleBorderColorUpdate(newBorderColor) {
+    dispatch({ type: 'updateBorderColor', payload: newBorderColor });
+  }
   return (
     <AnimeContext.Provider
       value={{
@@ -73,6 +81,7 @@ function AnimeProvider({ children }) {
         size,
         box,
         border,
+        borderColor,
         imageRef,
         handleCurrentBoxChange,
         handleKeywordChange,
@@ -80,6 +89,7 @@ function AnimeProvider({ children }) {
         handleSizeUpdate,
         handleBoxUpdate,
         handleBorderUpdate,
+        handleBorderColorUpdate,
       }}
     >
       {children}

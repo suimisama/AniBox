@@ -37,7 +37,7 @@ function AnimeImageBox() {
       className="mx-auto px-[200px]"
       onClick={(e) => handleClickBox(e)}
     >
-      <div className="grid min-h-[600px] min-w-[600px] my-5" style={gridStyle}>
+      <div className="grid h-[600px] w-[600px] my-5" style={gridStyle}>
         {box.map((item, index) => {
           return (
             <ImageBox
