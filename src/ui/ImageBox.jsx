@@ -9,7 +9,7 @@ function ImageBox({ id, src = '', onClick, size = 'normal' }) {
     large: 'w-[300px] h-[300px]',
     auto: '',
   };
-  const computedBorder = 1 - border * 0.01 || 1;
+  const computedBorder = 1 - border * 0.01;
   const shadowStyles = {
     boxShadow: `rgb(255, 255, 255) 0px 0px 0px ${computedBorder}px`,
   };
